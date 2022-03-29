@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/cloudstruct/cargo/version"
+)
 
 func main() {
-	fmt.Println("cargo")
+	fmt.Printf("cargo %s\n", version.GetVersionString())
 }
