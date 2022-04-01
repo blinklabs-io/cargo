@@ -9,10 +9,16 @@ import (
 
 type Config struct {
 	Logging LoggingConfig `yaml:"logging"`
+	Api     ApiConfig     `yaml:"api"`
 }
 
 type LoggingConfig struct {
 	Level string `yaml:"level" envconfig:"LOGGING_LEVEL" default:"info"`
+}
+
+type ApiConfig struct {
+	Address string `yaml:"address" envconfig:"API_ADDRESS" default:"localhost"`
+	Port    uint16 `yaml:"port" envconfig:"API_PORT" default:"8080"`
 }
 
 // Singleton config instance

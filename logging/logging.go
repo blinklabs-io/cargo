@@ -46,3 +46,7 @@ func GetLogger() *zap.SugaredLogger {
 func GetDesugaredLogger() *zap.Logger {
 	return globalLogger.Desugar()
 }
+
+func GetAccessLogger() *zap.Logger {
+	return globalLogger.Desugar().With(zap.String("type", "access")).WithOptions(zap.WithCaller(false))
+}
