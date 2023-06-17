@@ -1,5 +1,5 @@
 BINARY=cargo
-GOMODULE=github.com/cloudstruct/cargo
+GOMODULE=github.com/blinklabs-io/cargo
 
 # Determine root directory
 ROOT_DIR=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
@@ -27,7 +27,7 @@ build: $(BINARY)
 
 # Build docker image
 image: build
-	docker build -t cloudstruct/$(BINARY) .
+	docker build -t blinklabs/$(BINARY) .
 
 clean:
 	rm -f $(BINARY)
