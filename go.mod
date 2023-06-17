@@ -1,6 +1,6 @@
-module github.com/cloudstruct/cargo
+module github.com/blinklabs-io/cargo
 
-go 1.17
+go 1.18
 
 require (
 	github.com/gin-contrib/zap v0.0.2
