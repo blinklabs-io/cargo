@@ -1,6 +1,6 @@
 module github.com/blinklabs-io/cargo
 
-go 1.18
+go 1.19
 
 require (
 	github.com/gin-contrib/zap v0.1.0
