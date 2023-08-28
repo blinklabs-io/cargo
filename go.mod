@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/gin-contrib/zap v0.1.0
 	github.com/gin-gonic/gin v1.9.1
-	github.com/google/uuid v1.3.0
+	github.com/google/uuid v1.3.1
 	github.com/kelseyhightower/envconfig v1.4.0
 	go.uber.org/zap v1.25.0
 	gopkg.in/yaml.v2 v2.4.0
