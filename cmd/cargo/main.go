@@ -34,7 +34,12 @@ func main() {
 	// Parse commandline
 	cmdFlags := cmdlineFlags{}
 	flag.StringVar(&cmdFlags.configFile, "config", "", "path to config file")
-	flag.BoolVar(&cmdFlags.version, "version", false, "display the version and exit")
+	flag.BoolVar(
+		&cmdFlags.version,
+		"version",
+		false,
+		"display the version and exit",
+	)
 	flag.Parse()
 
 	// Handle -version
@@ -74,7 +79,11 @@ func main() {
 	}
 
 	// Start API listener
-	logger.Infof("starting management API listener on %s:%d", cfg.Api.Address, cfg.Api.Port)
+	logger.Infof(
+		"starting management API listener on %s:%d",
+		cfg.Api.Address,
+		cfg.Api.Port,
+	)
 	if err := api.Start(cfg); err != nil {
 		logger.Fatalf("failed to start API: %s", err)
 	}
