@@ -33,12 +33,12 @@ type LoggingConfig struct {
 
 type ApiConfig struct {
 	Address string `yaml:"address" envconfig:"CARGO_API_ADDRESS"`
-	Port    uint16 `yaml:"port" envconfig:"CARGO_API_PORT"`
+	Port    uint16 `yaml:"port"    envconfig:"CARGO_API_PORT"`
 }
 
 type StateConfig struct {
 	DatabaseDriver string `yaml:"driver" envconfig:"CARGO_STATE_DB_DRIVER"`
-	DatabaseDsn    string `yaml:"dsn" envconfig:"CARGO_STATE_DB_DSN"`
+	DatabaseDsn    string `yaml:"dsn"    envconfig:"CARGO_STATE_DB_DSN"`
 }
 
 // Singleton config instance with default values

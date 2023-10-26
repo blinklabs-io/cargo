@@ -66,7 +66,8 @@ func (m *Metadata) Load() error {
 	}
 	result := m.gormDb.Find(&metadata)
 	if len(metadata) > 0 {
-		logging.GetLogger().Debugf("state was last written by Cargo %s at %s", metadata[0].Value, metadata[0].UpdatedAt.Format(time.RFC3339))
+		logging.GetLogger().
+			Debugf("state was last written by Cargo %s at %s", metadata[0].Value, metadata[0].UpdatedAt.Format(time.RFC3339))
 	}
 	return result.Error
 }

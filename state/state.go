@@ -46,18 +46,31 @@ func Load(cfg *config.Config) (*State, error) {
 		if _, err := os.Stat(parentDir); errors.Is(err, os.ErrNotExist) {
 			logger.Debugf("creating parent directory %s", parentDir)
 			if err := os.MkdirAll(parentDir, os.ModePerm); err != nil {
-				return nil, fmt.Errorf("failed creating parent directories for %s: %s", parentDir, err)
+				return nil, fmt.Errorf(
+					"failed creating parent directories for %s: %s",
+					parentDir,
+					err,
+				)
 			}
 		}
-		gormDb, err = gorm.Open(sqlite.Open(cfg.State.DatabaseDsn), &gorm.Config{})
+		gormDb, err = gorm.Open(
+			sqlite.Open(cfg.State.DatabaseDsn),
+			&gorm.Config{},
+		)
 		if err == nil {
-			logger.Infof("opened SQLite connection for state: %s", cfg.State.DatabaseDsn)
+			logger.Infof(
+				"opened SQLite connection for state: %s",
+				cfg.State.DatabaseDsn,
+			)
 		} else {
 			return nil, fmt.Errorf("failed creating SQLite connection for state: %s: %s", cfg.State.DatabaseDsn, err)
 		}
 	// TODO: add additional drivers
 	default:
-		return nil, fmt.Errorf("unsupported database driver: %s\n", cfg.State.DatabaseDriver)
+		return nil, fmt.Errorf(
+			"unsupported database driver: %s\n",
+			cfg.State.DatabaseDriver,
+		)
 	}
 	globalState = &State{
 		gormDb: gormDb,
